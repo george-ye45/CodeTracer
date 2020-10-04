@@ -1,10 +1,10 @@
 import React from 'react';
 import {withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import HomeCompiler from '../homecompiler'
-import CategoryList from '../CategoryList'
-import QuestionPage from '../question_page'
-import QuestionList from '../QuestionList'
+import HomeCompiler from '../HomeCompiler/homecompiler'
+import CategoryList from '../CategoryList/CategoryList'
+import QuestionPage from '../QuestionPage/question_page'
+import QuestionList from '../QuestionList/QuestionList'
 
 const useStyles = (theme) => ({
     root: {
@@ -22,7 +22,6 @@ const useStyles = (theme) => ({
 	paper1: {
 		display: 'flex',
 		flexDirection: 'column',
-		color: "white",
 		width: "70%",
 		backgroundColor: '#c7ccd4',
 		padding: '10px',

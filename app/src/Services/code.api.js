@@ -1,6 +1,6 @@
 const axios = require('axios');
-// Service to use gitlab custom route in server
-const _submit = (input) => {
+
+const submitCode = (input) => {
     return new Promise((resolve, reject) => {
         axios({
             method: 'post',
@@ -16,7 +16,7 @@ const _submit = (input) => {
 }
 
 
-const _submitFeedBack = (input) => {
+const submitFeedBack = (input) => {
     return new Promise((resolve, reject) => {
         axios({
             method: 'post',
@@ -33,7 +33,7 @@ const _submitFeedBack = (input) => {
 
 
 
-const _getCategories = () => {
+const getCategories = () => {
     return new Promise((resolve, reject) => {
         axios({
             method: 'get',
@@ -46,7 +46,7 @@ const _getCategories = () => {
     })
 }
 
-const _getQuestions= () => {
+const getQuestions= () => {
     return new Promise((resolve, reject) => {
         axios({
             method: 'get',
@@ -62,6 +62,6 @@ const _getQuestions= () => {
 
 
 
-const api = {_submit, _getCategories, _getQuestions, _submitFeedBack}
+const api = {submitCode, getCategories, getQuestions, submitFeedBack}
 
 export default api

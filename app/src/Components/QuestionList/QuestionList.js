@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
-import API from './../Services/code.api'
+import API from '../../Services/code.api'
 import HomeIcon from '@material-ui/icons/Home';
 import { Button, Divider } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
@@ -20,7 +20,7 @@ export default class QuestionList extends Component {
     }
 
     componentDidMount(){
-        API._getQuestions().then((data) =>{
+        API.getQuestions().then((data) =>{
             let arr = data.data.filter((item) => {
                 return item.category === this.props.category
             })

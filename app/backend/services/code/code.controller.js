@@ -1,13 +1,12 @@
 const axios = require('axios')
-const python_utils = require('./code.utils')
+const code_utils = require('./code.utils')
 require('dotenv').config()
 
 const version = 3
 const clientId = process.env.CLIENT_ID
 const clientSecret = process.env.CLIENT_SECRET
 
-const _getTester = (number, language) => {
-    console.log(language)
+const getTester = (number, language) => {
     return new Promise((resolve, reject) => {
         axios({
             method: 'get',
@@ -23,7 +22,7 @@ const _getTester = (number, language) => {
 }
 
 
-const _submission = (code, language) => {
+const submission = (code, language) => {
     let obj = {}
     obj.clientId = clientId
     obj.clientSecret = clientSecret
@@ -36,9 +35,8 @@ const _submission = (code, language) => {
         obj.language = language
     }
     obj.versionIndex = version
-    console.log(code)
     return new Promise((resolve, reject) => {
-        python_utils._compile(obj).then((data) => {
+        code_utils.compile(obj).then((data) => {
             resolve(data)
         }).catch((err) => {
             reject(err)
@@ -49,9 +47,9 @@ const _submission = (code, language) => {
 
 
 
-const _getSol = (number) => {
+const getSol = (number) => {
     return new Promise((resolve, reject) => {
-        python_utils._compileSol(number).then((data) => {
+        code_utils.compileSol(number).then((data) => {
             resolve(data)
         }).catch(err => {
             reject(err)
@@ -59,6 +57,6 @@ const _getSol = (number) => {
     })
 }
 
-const api = {_submission, _getSol, _getTester}
+const api = {submission, getSol, getTester}
 
 module.exports = api

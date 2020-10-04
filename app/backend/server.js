@@ -16,11 +16,10 @@ app.get('*', (req, res) => {
 app.use(cors())
 
 
-const router = new Router(app)
+const server = new Router(app)
 
+server.start()
 
-
-module.exports = router;
 
 
 

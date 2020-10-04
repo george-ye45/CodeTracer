@@ -8,7 +8,7 @@ import "ace-builds/src-noconflict/mode-java"
 import "ace-builds/src-noconflict/theme-monokai";
 import "react-notifications/dist/react-notifications.css"
 import Typography from '@material-ui/core/Typography'
-import CodeAPI from './../Services/code.api'
+import API from '../../Services/code.api'
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import { CodeBlock, monokai } from "react-code-blocks";
 import Tabs from '@material-ui/core/Tabs';
@@ -71,7 +71,6 @@ class QuestionPage extends Component {
             loading: false,
             sol: null,
             userAnswer: null,
-            isCorrect: false,
             language: this.props.question.language
         }
     }
@@ -94,14 +93,17 @@ class QuestionPage extends Component {
             question_number: this.props.question.number,
             language: this.props.question.language.toLowerCase()
         }
-        CodeAPI._submit(obj).then((results) => {
+        API.submitCode(obj).then((results) => {
             results.output = results.output.trim()
             if (!results.output.includes("\n")) {
                 NotificationManager.error("Error occured! Check your code")
                 this.setState({output: [results.output], loading: false})
             } else {
-                let sol = results.output.split("\n").slice(-2, -1)
-                let userAnswer = results.output.split("\n").slice(-3, -2)
+                let sol = results.output.split("\n").slice(-1)
+                let userAnswer = results.output.split("\n").slice(-2, -1)
+                if (sol.length === 0) {
+                    sol.push("")
+                }
                 if (sol[0].trim() === userAnswer[0].trim()) {
                     NotificationManager.success("Nice! All tests passed!")
                 } else {
@@ -194,8 +196,6 @@ class QuestionPage extends Component {
                                     {item}
                                 </Typography>
                         ))}
-                        {/* {this.state.isCorrect ?
-                            <DoneIcon className = {this.props.classes.colorPrimary} fontSize = 'large' color = "primary"/> : null} */}
                     </Box>
                     </div>
                     <Button onClick = {(e) => {this.handleSubmit()}}className = {this.props.classes.submit}>Run</Button>

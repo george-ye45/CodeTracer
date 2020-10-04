@@ -1,6 +1,6 @@
 const axios = require('axios')
 
-const _compile = (input) => {
+const compile = (input) => {
     return new Promise((resolve, reject) => {
         console.log(input.script)
         axios({
@@ -23,4 +23,4 @@ const _compile = (input) => {
     })
 }
 
-module.exports = {_compile}
+module.exports = {compile}

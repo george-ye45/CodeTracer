@@ -23,9 +23,6 @@ const useStyles = theme => ({
    root: {
       display: 'flex',
    },
-   menuButton: {
-      marginRight: theme.spacing(2),
-   },
    logo: {
       height: 'auto',
       width: 300
@@ -98,7 +95,7 @@ class TopNav extends React.Component {
                            <Link rel="noopener" target="_blank" href="https://www.linkedin.com/in/george-ye-45g/" >
                               My LinkedIn Profile
                            </Link>
-                           <Link rel="noopener" target="_blank" href="https://github.com/george-ye45" >
+                           <Link rel="noopener" target="_blank" href="https://george-ye45.github.io/" >
                               My Github Page
                            </Link>
                         </div>
@@ -112,9 +109,6 @@ class TopNav extends React.Component {
                      </Button>
                   </DialogActions>
             </Dialog>
-
-
-
           </AppBar>
        )
     }

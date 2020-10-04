@@ -7,7 +7,7 @@ import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/theme-monokai";
 import Typography from '@material-ui/core/Typography'
-import CodeAPI from './../Services/code.api'
+import API from '../../Services/code.api'
 import LinearProgress from '@material-ui/core/LinearProgress'
 
 
@@ -87,7 +87,7 @@ class HomeCompiler extends Component {
             question_number: null,
             language: this.state.language.toLowerCase()
         }
-        CodeAPI._submit(obj).then((results) => {
+        API.submitCode(obj).then((results) => {
             this.setState({output: results.user.output.split("\n"), loading: false})
         })
     }

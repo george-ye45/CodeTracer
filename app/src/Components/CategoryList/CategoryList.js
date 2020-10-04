@@ -3,7 +3,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
-import API from './../Services/code.api'
+import API from '../../Services/code.api'
 import Divider from '@material-ui/core/Divider';
 
 export default class CategoryList extends Component {
@@ -18,7 +18,7 @@ export default class CategoryList extends Component {
     }
 
     componentDidMount(){
-        API._getCategories().then((data) =>{
+        API.getCategories().then((data) =>{
             let arr = data.data.filter(item => item.language === this.state.language)
             this.setState({categories: arr})
         })
@@ -27,8 +27,7 @@ export default class CategoryList extends Component {
 	componentDidUpdate(prevProps) {
 		if (prevProps !== this.props) {
             this.setState({language: this.props.language})
-            API._getCategories().then((data) =>{
-                console.log("In categories", this.state.language)
+            API.getCategories().then((data) =>{
                 let arr = data.data.filter(item => item.language === this.state.language)
                 this.setState({categories: arr})
             })
@@ -36,7 +35,6 @@ export default class CategoryList extends Component {
 	}
 
     render() {
-        console.log(this.state.categories)
         return (
             <div style = {{width: '100%'}}>
                 <div style = {{display: 'flex', justifyContent: 'space-between'}}>
