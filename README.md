@@ -1,4 +1,4 @@
-# # CodeTracer
+# CodeTracer
 
 Online compiler and coding practice web app!
 
