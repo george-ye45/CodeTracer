@@ -1,6 +1,7 @@
 # CodeTracer
 
-Online compiler and coding practice web app!
+Online compiler and coding practice web app! <br/>
+[Live Here: https://codetracer.herokuapp.com/](https://codetracer.herokuapp.com/)
 
 ## Description
 
@@ -8,7 +9,8 @@ This web application utilizes React, NodeJS, MongoDB Atlas, and Heroku
 
 ## Requirements
 [Install NodeJS](https://nodejs.org/en/download/)<br/>
-[MongoDB Atlas](https://www.mongodb.com/cloud/atlas?tck=docs_server)
+[MongoDB Atlas](https://www.mongodb.com/cloud/atlas?tck=docs_server) <br/>
+[JDoodle API](https://www.jdoodle.com/compiler-api/) (You will need to get your client ID and client secret after signing in)
 
 ## Clone and Build
 ```terminal
