@@ -6,14 +6,14 @@ const version = 3
 const clientId = process.env.CLIENT_ID
 const clientSecret = process.env.CLIENT_SECRET
 
-const getTester = (number, language) => {
+const getTester = (number, language, category) => {
     return new Promise((resolve, reject) => {
         axios({
             method: 'get',
             url: `http://localhost:${process.env.PORT || 5000}/api/getQuestions`
         }).then((results) => {
             let tester = results.data.filter(item => {
-                return item.number === number && item.language === language
+                return item.number === number && item.language === language && item.category == category
             })
             resolve(tester[0].tester)
         })

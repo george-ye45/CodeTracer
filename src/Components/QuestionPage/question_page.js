@@ -89,6 +89,7 @@ class QuestionPage extends Component {
     handleSubmit = (e) => {
         this.setState({loading: true})
         let obj = {
+            category: this.props.question.category,
             code: this.state.code,
             question_number: this.props.question.number,
             language: this.props.question.language.toLowerCase()

@@ -35,10 +35,11 @@ module.exports.set = (app) => {
         let code = req.body.code
         let question_number = req.body.question_number
         let language = req.body.language
+        let category = req.body.category
         let result = {}
         if (question_number !== null) {
 
-            code_handler.getTester(question_number, language).then((data) => {
+            code_handler.getTester(question_number, language, category).then((data) => {
                 if (language === 'java') {
                     header = `public class Tester{
                         ${code}
